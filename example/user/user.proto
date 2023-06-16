@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mprpc;
+
+option cc_generic_services = true;
+
+message LoginRequest {
+    bytes username = 1;
+    bytes passwd = 2;
+}
+
+message LoginRespone {
+    int32 status = 1;
+}
+
+service UserServer {
+    rpc Loging(LoginRequest) returns (LoginRespone);
+}
