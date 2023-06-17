@@ -8,4 +8,5 @@ add_library(mprpc SHARED ${SRC_LIST})
 
 target_link_libraries(mprpc
     protobuf::libprotobuf
+    absl::base absl::strings absl::flags_parse
 )
