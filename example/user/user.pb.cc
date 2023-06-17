@@ -11,26 +11,29 @@
 #include "google/protobuf/generated_message_reflection.h"
 #include "google/protobuf/reflection_ops.h"
 #include "google/protobuf/wire_format.h"
+#include "google/protobuf/generated_message_tctable_impl.h"
 // @@protoc_insertion_point(includes)
 
 // Must be included last.
 #include "google/protobuf/port_def.inc"
 PROTOBUF_PRAGMA_INIT_SEG
-namespace _pb = ::PROTOBUF_NAMESPACE_ID;
-namespace _pbi = ::PROTOBUF_NAMESPACE_ID::internal;
+namespace _pb = ::google::protobuf;
+namespace _pbi = ::google::protobuf::internal;
+namespace _fl = ::google::protobuf::internal::field_layout;
 namespace mprpc {
-template <typename>
-PROTOBUF_CONSTEXPR LoginRequest::LoginRequest(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.username_)*/ {
-    &::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized {}
-  }
-
-  , /*decltype(_impl_.passwd_)*/ {
-    &::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized {}
-  }
-
-  , /*decltype(_impl_._cached_size_)*/{}} {}
+        template <typename>
+PROTOBUF_CONSTEXPR LoginRequest::LoginRequest(::_pbi::ConstantInitialized)
+    : _impl_{
+      /*decltype(_impl_.username_)*/ {
+          &::_pbi::fixed_address_empty_string,
+          ::_pbi::ConstantInitialized{},
+      },
+      /*decltype(_impl_.passwd_)*/ {
+          &::_pbi::fixed_address_empty_string,
+          ::_pbi::ConstantInitialized{},
+      },
+      /*decltype(_impl_._cached_size_)*/ {},
+    } {}
 struct LoginRequestDefaultTypeInternal {
   PROTOBUF_CONSTEXPR LoginRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
   ~LoginRequestDefaultTypeInternal() {}
@@ -41,12 +44,12 @@ struct LoginRequestDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 LoginRequestDefaultTypeInternal _LoginRequest_default_instance_;
-template <typename>
-PROTOBUF_CONSTEXPR LoginRespone::LoginRespone(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.status_)*/ 0
-
-  , /*decltype(_impl_._cached_size_)*/{}} {}
+        template <typename>
+PROTOBUF_CONSTEXPR LoginRespone::LoginRespone(::_pbi::ConstantInitialized)
+    : _impl_{
+      /*decltype(_impl_.status_)*/ 0,
+      /*decltype(_impl_._cached_size_)*/ {},
+    } {}
 struct LoginResponeDefaultTypeInternal {
   PROTOBUF_CONSTEXPR LoginResponeDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
   ~LoginResponeDefaultTypeInternal() {}
@@ -88,8 +91,8 @@ const ::uint32_t TableStruct_user_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
 
 static const ::_pbi::MigrationSchema
     schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-        { 0, -1, -1, sizeof(::mprpc::LoginRequest)},
-        { 10, -1, -1, sizeof(::mprpc::LoginRespone)},
+        {0, -1, -1, sizeof(::mprpc::LoginRequest)},
+        {10, -1, -1, sizeof(::mprpc::LoginRespone)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -146,22 +149,21 @@ class LoginRequest::_Internal {
  public:
 };
 
-LoginRequest::LoginRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+LoginRequest::LoginRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:mprpc.LoginRequest)
 }
-LoginRequest::LoginRequest(const LoginRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  LoginRequest* const _this = this; (void)_this;
+LoginRequest::LoginRequest(const LoginRequest& from) : ::google::protobuf::Message() {
+  LoginRequest* const _this = this;
+  (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.username_) {}
-
-    , decltype(_impl_.passwd_) {}
-
-    , /*decltype(_impl_._cached_size_)*/{}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+      decltype(_impl_.username_){},
+      decltype(_impl_.passwd_){},
+      /*decltype(_impl_._cached_size_)*/ {},
+  };
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
   _impl_.username_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
         _impl_.username_.Set("", GetArenaForAllocation());
@@ -176,17 +178,15 @@ LoginRequest::LoginRequest(const LoginRequest& from)
   if (!from._internal_passwd().empty()) {
     _this->_impl_.passwd_.Set(from._internal_passwd(), _this->GetArenaForAllocation());
   }
+
   // @@protoc_insertion_point(copy_constructor:mprpc.LoginRequest)
 }
-
 inline void LoginRequest::SharedCtor(::_pb::Arena* arena) {
   (void)arena;
   new (&_impl_) Impl_{
-      decltype(_impl_.username_) {}
-
-    , decltype(_impl_.passwd_) {}
-
-    , /*decltype(_impl_._cached_size_)*/{}
+      decltype(_impl_.username_){},
+      decltype(_impl_.passwd_){},
+      /*decltype(_impl_._cached_size_)*/ {},
   };
   _impl_.username_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -197,27 +197,21 @@ inline void LoginRequest::SharedCtor(::_pb::Arena* arena) {
         _impl_.passwd_.Set("", GetArenaForAllocation());
   #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
-
 LoginRequest::~LoginRequest() {
   // @@protoc_insertion_point(destructor:mprpc.LoginRequest)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
-
 inline void LoginRequest::SharedDtor() {
   ABSL_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.username_.Destroy();
   _impl_.passwd_.Destroy();
 }
-
 void LoginRequest::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void LoginRequest::Clear() {
+PROTOBUF_NOINLINE void LoginRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:mprpc.LoginRequest)
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -225,63 +219,58 @@ void LoginRequest::Clear() {
 
   _impl_.username_.ClearToEmpty();
   _impl_.passwd_.ClearToEmpty();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
-const char* LoginRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // bytes username = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_username();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-        } else {
-          goto handle_unusual;
-        }
-        continue;
-      // bytes passwd = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::uint8_t>(tag) == 18)) {
-          auto str = _internal_mutable_passwd();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-        } else {
-          goto handle_unusual;
-        }
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
+const char* LoginRequest::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
 }
+
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 0, 2> LoginRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_LoginRequest_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // bytes passwd = 2;
+    {::_pbi::TcParser::FastBS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(LoginRequest, _impl_.passwd_)}},
+    // bytes username = 1;
+    {::_pbi::TcParser::FastBS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(LoginRequest, _impl_.username_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // bytes username = 1;
+    {PROTOBUF_FIELD_OFFSET(LoginRequest, _impl_.username_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBytes | ::_fl::kRepAString)},
+    // bytes passwd = 2;
+    {PROTOBUF_FIELD_OFFSET(LoginRequest, _impl_.passwd_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBytes | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
 
 ::uint8_t* LoginRequest::_InternalSerialize(
-    ::uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:mprpc.LoginRequest)
   ::uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
+  (void)cached_has_bits;
 
   // bytes username = 1;
   if (!this->_internal_username().empty()) {
@@ -296,8 +285,9 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:mprpc.LoginRequest)
   return target;
@@ -313,27 +303,27 @@ failure:
 
   // bytes username = 1;
   if (!this->_internal_username().empty()) {
-    total_size += 1 + ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::BytesSize(
                                     this->_internal_username());
   }
 
   // bytes passwd = 2;
   if (!this->_internal_passwd().empty()) {
-    total_size += 1 + ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::BytesSize(
                                     this->_internal_passwd());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData LoginRequest::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+const ::google::protobuf::Message::ClassData LoginRequest::_class_data_ = {
+    ::google::protobuf::Message::CopyWithSourceCheck,
     LoginRequest::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*LoginRequest::GetClassData() const { return &_class_data_; }
+const ::google::protobuf::Message::ClassData*LoginRequest::GetClassData() const { return &_class_data_; }
 
 
-void LoginRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+void LoginRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<LoginRequest*>(&to_msg);
   auto& from = static_cast<const LoginRequest&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:mprpc.LoginRequest)
@@ -347,7 +337,7 @@ void LoginRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::P
   if (!from._internal_passwd().empty()) {
     _this->_internal_set_passwd(from._internal_passwd());
   }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void LoginRequest::CopyFrom(const LoginRequest& from) {
@@ -357,7 +347,7 @@ void LoginRequest::CopyFrom(const LoginRequest& from) {
   MergeFrom(from);
 }
 
-bool LoginRequest::IsInitialized() const {
+PROTOBUF_NOINLINE bool LoginRequest::IsInitialized() const {
   return true;
 }
 
@@ -372,7 +362,7 @@ void LoginRequest::InternalSwap(LoginRequest* other) {
                                        &other->_impl_.passwd_, rhs_arena);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata LoginRequest::GetMetadata() const {
+::google::protobuf::Metadata LoginRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_user_2eproto_getter, &descriptor_table_user_2eproto_once,
       file_level_metadata_user_2eproto[0]);
@@ -383,108 +373,101 @@ class LoginRespone::_Internal {
  public:
 };
 
-LoginRespone::LoginRespone(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+LoginRespone::LoginRespone(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:mprpc.LoginRespone)
 }
 LoginRespone::LoginRespone(const LoginRespone& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(), _impl_(from._impl_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+    : ::google::protobuf::Message(), _impl_(from._impl_) {
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:mprpc.LoginRespone)
 }
-
 inline void LoginRespone::SharedCtor(::_pb::Arena* arena) {
   (void)arena;
   new (&_impl_) Impl_{
-      decltype(_impl_.status_) { 0 }
-
-    , /*decltype(_impl_._cached_size_)*/{}
+      decltype(_impl_.status_){0},
+      /*decltype(_impl_._cached_size_)*/ {},
   };
 }
-
 LoginRespone::~LoginRespone() {
   // @@protoc_insertion_point(destructor:mprpc.LoginRespone)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
-
 inline void LoginRespone::SharedDtor() {
   ABSL_DCHECK(GetArenaForAllocation() == nullptr);
 }
-
 void LoginRespone::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void LoginRespone::Clear() {
+PROTOBUF_NOINLINE void LoginRespone::Clear() {
 // @@protoc_insertion_point(message_clear_start:mprpc.LoginRespone)
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   _impl_.status_ = 0;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
-const char* LoginRespone::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // int32 status = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::uint8_t>(tag) == 8)) {
-          _impl_.status_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else {
-          goto handle_unusual;
-        }
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
+const char* LoginRespone::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
 }
+
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 0, 2> LoginRespone::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_LoginRespone_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // int32 status = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(LoginRespone, _impl_.status_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(LoginRespone, _impl_.status_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // int32 status = 1;
+    {PROTOBUF_FIELD_OFFSET(LoginRespone, _impl_.status_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
 
 ::uint8_t* LoginRespone::_InternalSerialize(
-    ::uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:mprpc.LoginRespone)
   ::uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
+  (void)cached_has_bits;
 
   // int32 status = 1;
   if (this->_internal_status() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(
-        1, this->_internal_status(), target);
+    target = ::google::protobuf::internal::WireFormatLite::
+        WriteInt32ToArrayWithField<1>(
+            stream, this->_internal_status(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:mprpc.LoginRespone)
   return target;
@@ -507,14 +490,14 @@ failure:
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData LoginRespone::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+const ::google::protobuf::Message::ClassData LoginRespone::_class_data_ = {
+    ::google::protobuf::Message::CopyWithSourceCheck,
     LoginRespone::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*LoginRespone::GetClassData() const { return &_class_data_; }
+const ::google::protobuf::Message::ClassData*LoginRespone::GetClassData() const { return &_class_data_; }
 
 
-void LoginRespone::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+void LoginRespone::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<LoginRespone*>(&to_msg);
   auto& from = static_cast<const LoginRespone&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:mprpc.LoginRespone)
@@ -525,7 +508,7 @@ void LoginRespone::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::P
   if (from._internal_status() != 0) {
     _this->_internal_set_status(from._internal_status());
   }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void LoginRespone::CopyFrom(const LoginRespone& from) {
@@ -535,50 +518,49 @@ void LoginRespone::CopyFrom(const LoginRespone& from) {
   MergeFrom(from);
 }
 
-bool LoginRespone::IsInitialized() const {
+PROTOBUF_NOINLINE bool LoginRespone::IsInitialized() const {
   return true;
 }
 
 void LoginRespone::InternalSwap(LoginRespone* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-
-  swap(_impl_.status_, other->_impl_.status_);
+        swap(_impl_.status_, other->_impl_.status_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata LoginRespone::GetMetadata() const {
+::google::protobuf::Metadata LoginRespone::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_user_2eproto_getter, &descriptor_table_user_2eproto_once,
       file_level_metadata_user_2eproto[1]);
 }
 // ===================================================================
 
-const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* UserServer::descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_user_2eproto);
+const ::google::protobuf::ServiceDescriptor* UserServer::descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_user_2eproto);
   return file_level_service_descriptors_user_2eproto[0];
 }
 
-const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* UserServer::GetDescriptor() {
+const ::google::protobuf::ServiceDescriptor* UserServer::GetDescriptor() {
   return descriptor();
 }
 
-void UserServer::Loging(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+void UserServer::Loging(::google::protobuf::RpcController* controller,
                          const ::mprpc::LoginRequest*, ::mprpc::LoginRespone*, ::google::protobuf::Closure* done) {
   controller->SetFailed("Method Loging() not implemented.");
   done->Run();
 }
 
 void UserServer::CallMethod(
-    const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
-    ::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-    const ::PROTOBUF_NAMESPACE_ID::Message* request,
-    ::PROTOBUF_NAMESPACE_ID::Message* response, ::google::protobuf::Closure* done) {
+    const ::google::protobuf::MethodDescriptor* method,
+    ::google::protobuf::RpcController* controller,
+    const ::google::protobuf::Message* request,
+    ::google::protobuf::Message* response, ::google::protobuf::Closure* done) {
   ABSL_DCHECK_EQ(method->service(), file_level_service_descriptors_user_2eproto[0]);
   switch (method->index()) {
     case 0:
       Loging(controller,
-             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::mprpc::LoginRequest*>(request),
-             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::mprpc::LoginRespone*>(response), done);
+             ::google::protobuf::internal::DownCast<const ::mprpc::LoginRequest*>(request),
+             ::google::protobuf::internal::DownCast<::mprpc::LoginRespone*>(response), done);
       break;
 
     default:
@@ -587,8 +569,8 @@ void UserServer::CallMethod(
   }
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message& UserServer::GetRequestPrototype(
-    const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method) const {
+const ::google::protobuf::Message& UserServer::GetRequestPrototype(
+    const ::google::protobuf::MethodDescriptor* method) const {
   ABSL_DCHECK_EQ(method->service(), descriptor());
   switch (method->index()) {
     case 0:
@@ -596,13 +578,13 @@ const ::PROTOBUF_NAMESPACE_ID::Message& UserServer::GetRequestPrototype(
 
     default:
       ABSL_LOG(FATAL) << "Bad method index; this should never happen.";
-      return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
+      return *::google::protobuf::MessageFactory::generated_factory()
                   ->GetPrototype(method->input_type());
   }
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message& UserServer::GetResponsePrototype(
-    const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method) const {
+const ::google::protobuf::Message& UserServer::GetResponsePrototype(
+    const ::google::protobuf::MethodDescriptor* method) const {
   ABSL_DCHECK_EQ(method->service(), descriptor());
   switch (method->index()) {
     case 0:
@@ -610,26 +592,26 @@ const ::PROTOBUF_NAMESPACE_ID::Message& UserServer::GetResponsePrototype(
 
     default:
       ABSL_LOG(FATAL) << "Bad method index; this should never happen.";
-      return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
+      return *::google::protobuf::MessageFactory::generated_factory()
                   ->GetPrototype(method->output_type());
   }
 }
 
-UserServer_Stub::UserServer_Stub(::PROTOBUF_NAMESPACE_ID::RpcChannel* channel)
+UserServer_Stub::UserServer_Stub(::google::protobuf::RpcChannel* channel)
     : channel_(channel), owns_channel_(false) {}
 
 UserServer_Stub::UserServer_Stub(
-    ::PROTOBUF_NAMESPACE_ID::RpcChannel* channel,
-    ::PROTOBUF_NAMESPACE_ID::Service::ChannelOwnership ownership)
+    ::google::protobuf::RpcChannel* channel,
+    ::google::protobuf::Service::ChannelOwnership ownership)
     : channel_(channel),
       owns_channel_(ownership ==
-                    ::PROTOBUF_NAMESPACE_ID::Service::STUB_OWNS_CHANNEL) {}
+                    ::google::protobuf::Service::STUB_OWNS_CHANNEL) {}
 
 UserServer_Stub::~UserServer_Stub() {
   if (owns_channel_) delete channel_;
 }
 
-void UserServer_Stub::Loging(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+void UserServer_Stub::Loging(::google::protobuf::RpcController* controller,
                               const ::mprpc::LoginRequest* request,
                               ::mprpc::LoginRespone* response, ::google::protobuf::Closure* done) {
   channel_->CallMethod(descriptor()->method(0), controller,
@@ -637,7 +619,8 @@ void UserServer_Stub::Loging(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
 }
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace mprpc
-PROTOBUF_NAMESPACE_OPEN
+namespace google {
+namespace protobuf {
 template<> PROTOBUF_NOINLINE ::mprpc::LoginRequest*
 Arena::CreateMaybeMessage< ::mprpc::LoginRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::mprpc::LoginRequest >(arena);
@@ -646,6 +629,7 @@ template<> PROTOBUF_NOINLINE ::mprpc::LoginRespone*
 Arena::CreateMaybeMessage< ::mprpc::LoginRespone >(Arena* arena) {
   return Arena::CreateMessageInternal< ::mprpc::LoginRespone >(arena);
 }
-PROTOBUF_NAMESPACE_CLOSE
+}  // namespace protobuf
+}  // namespace google
 // @@protoc_insertion_point(global_scope)
 #include "google/protobuf/port_undef.inc"
