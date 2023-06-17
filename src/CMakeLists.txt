@@ -1,4 +1,5 @@
 
+# 生成makefile之后，就不会再更新
 aux_source_directory(. SRC_LIST)
 
 find_package(protobuf REQUIRED)
@@ -8,5 +9,5 @@ add_library(mprpc SHARED ${SRC_LIST})
 
 target_link_libraries(mprpc
     protobuf::libprotobuf
-    absl::base absl::strings absl::flags_parse
+    absl::strings absl::flags_parse
 )
