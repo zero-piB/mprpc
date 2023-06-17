@@ -25,3 +25,7 @@ MprpcApplication& MprpcApplication::getInstance() {
     static MprpcApplication self;
     return self;
 }
+
+MprpcConfig& MprpcApplication::getConfig() {
+    return configer_;
+}

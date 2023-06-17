@@ -24,7 +24,16 @@ mkdir -p build && cd build
 cmake -DCMAKE_POSITION_INDEPENDENT_CODE=ON -DCMAKE_CXX_STANDARD=14 ..
 make -j32 && make install
 
+此外还要安装muduo网络库，这个库依赖了下面的包(centos7)
+
+yum install gcc-c++ cmake make boost-devel
+
+貌似对boost库的版本会有一定的要求，不然会编译不过
+
+安装教程: https://blog.csdn.net/this_capslock/article/details/47170313
+
 ```
+**记得以后编译其他库时，都加上 set(CXX_FLAGS -fPIC)**
 
 ## 使用
 
