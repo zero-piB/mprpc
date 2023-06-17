@@ -24,6 +24,7 @@
 #include "google/protobuf/io/coded_stream.h"
 #include "google/protobuf/arena.h"
 #include "google/protobuf/arenastring.h"
+#include "google/protobuf/generated_message_bases.h"
 #include "google/protobuf/generated_message_tctable_decl.h"
 #include "google/protobuf/generated_message_util.h"
 #include "google/protobuf/metadata_lite.h"
@@ -61,6 +62,12 @@ extern LoginRequestDefaultTypeInternal _LoginRequest_default_instance_;
 class LoginRespone;
 struct LoginResponeDefaultTypeInternal;
 extern LoginResponeDefaultTypeInternal _LoginRespone_default_instance_;
+class SayHelloRequest;
+struct SayHelloRequestDefaultTypeInternal;
+extern SayHelloRequestDefaultTypeInternal _SayHelloRequest_default_instance_;
+class SayHelloRespone;
+struct SayHelloResponeDefaultTypeInternal;
+extern SayHelloResponeDefaultTypeInternal _SayHelloRespone_default_instance_;
 }  // namespace mprpc
 namespace google {
 namespace protobuf {
@@ -68,6 +75,10 @@ template <>
 ::mprpc::LoginRequest* Arena::CreateMaybeMessage<::mprpc::LoginRequest>(Arena*);
 template <>
 ::mprpc::LoginRespone* Arena::CreateMaybeMessage<::mprpc::LoginRespone>(Arena*);
+template <>
+::mprpc::SayHelloRequest* Arena::CreateMaybeMessage<::mprpc::SayHelloRequest>(Arena*);
+template <>
+::mprpc::SayHelloRespone* Arena::CreateMaybeMessage<::mprpc::SayHelloRespone>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 
@@ -416,6 +427,295 @@ class LoginRespone final :
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_user_2eproto;
+};// -------------------------------------------------------------------
+
+class SayHelloRequest final :
+    public ::google::protobuf::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:mprpc.SayHelloRequest) */ {
+ public:
+  inline SayHelloRequest() : SayHelloRequest(nullptr) {}
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR SayHelloRequest(::google::protobuf::internal::ConstantInitialized);
+
+  SayHelloRequest(const SayHelloRequest& from);
+  SayHelloRequest(SayHelloRequest&& from) noexcept
+    : SayHelloRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline SayHelloRequest& operator=(const SayHelloRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SayHelloRequest& operator=(SayHelloRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SayHelloRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SayHelloRequest* internal_default_instance() {
+    return reinterpret_cast<const SayHelloRequest*>(
+               &_SayHelloRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(SayHelloRequest& a, SayHelloRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SayHelloRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SayHelloRequest* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SayHelloRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SayHelloRequest>(arena);
+  }
+  using ::google::protobuf::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const SayHelloRequest& from) {
+    ::google::protobuf::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::google::protobuf::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const SayHelloRequest& from) {
+    ::google::protobuf::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
+  public:
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "mprpc.SayHelloRequest";
+  }
+  protected:
+  explicit SayHelloRequest(::google::protobuf::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:mprpc.SayHelloRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::google::protobuf::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    PROTOBUF_TSAN_DECLARE_MEMBER;
+  };
+  friend struct ::TableStruct_user_2eproto;
+};// -------------------------------------------------------------------
+
+class SayHelloRespone final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:mprpc.SayHelloRespone) */ {
+ public:
+  inline SayHelloRespone() : SayHelloRespone(nullptr) {}
+  ~SayHelloRespone() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR SayHelloRespone(::google::protobuf::internal::ConstantInitialized);
+
+  SayHelloRespone(const SayHelloRespone& from);
+  SayHelloRespone(SayHelloRespone&& from) noexcept
+    : SayHelloRespone() {
+    *this = ::std::move(from);
+  }
+
+  inline SayHelloRespone& operator=(const SayHelloRespone& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SayHelloRespone& operator=(SayHelloRespone&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SayHelloRespone& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SayHelloRespone* internal_default_instance() {
+    return reinterpret_cast<const SayHelloRespone*>(
+               &_SayHelloRespone_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(SayHelloRespone& a, SayHelloRespone& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SayHelloRespone* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SayHelloRespone* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SayHelloRespone* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SayHelloRespone>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const SayHelloRespone& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const SayHelloRespone& from) {
+    SayHelloRespone::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SayHelloRespone* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "mprpc.SayHelloRespone";
+  }
+  protected:
+  explicit SayHelloRespone(::google::protobuf::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kMsgFieldNumber = 1,
+  };
+  // bytes msg = 1;
+  void clear_msg() ;
+  const std::string& msg() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_msg(Arg_&& arg, Args_... args);
+  std::string* mutable_msg();
+  PROTOBUF_NODISCARD std::string* release_msg();
+  void set_allocated_msg(std::string* ptr);
+
+  private:
+  const std::string& _internal_msg() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_msg(
+      const std::string& value);
+  std::string* _internal_mutable_msg();
+
+  public:
+  // @@protoc_insertion_point(class_scope:mprpc.SayHelloRespone)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<0, 1, 0, 0, 2> _table_;
+  template <typename T> friend class ::google::protobuf::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::google::protobuf::internal::ArenaStringPtr msg_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_user_2eproto;
 };
 
 // ===================================================================
@@ -437,9 +737,13 @@ class UserServer : public ::google::protobuf::Service {
 
   static const ::google::protobuf::ServiceDescriptor* descriptor();
 
-  virtual void Loging(::google::protobuf::RpcController* controller,
+  virtual void Login(::google::protobuf::RpcController* controller,
                         const ::mprpc::LoginRequest* request,
                         ::mprpc::LoginRespone* response,
+                        ::google::protobuf::Closure* done);
+  virtual void SayHello(::google::protobuf::RpcController* controller,
+                        const ::mprpc::SayHelloRequest* request,
+                        ::mprpc::SayHelloRespone* response,
                         ::google::protobuf::Closure* done);
 
   // implements Service ----------------------------------------------
@@ -472,9 +776,13 @@ class UserServer_Stub final : public UserServer {
   inline ::google::protobuf::RpcChannel* channel() { return channel_; }
 
   // implements UserServer ------------------------------------------
-  void Loging(::google::protobuf::RpcController* controller,
+  void Login(::google::protobuf::RpcController* controller,
                         const ::mprpc::LoginRequest* request,
                         ::mprpc::LoginRespone* response,
+                        ::google::protobuf::Closure* done) override;
+  void SayHello(::google::protobuf::RpcController* controller,
+                        const ::mprpc::SayHelloRequest* request,
+                        ::mprpc::SayHelloRespone* response,
                         ::google::protobuf::Closure* done) override;
 
  private:
@@ -608,6 +916,59 @@ inline ::int32_t LoginRespone::_internal_status() const {
 inline void LoginRespone::_internal_set_status(::int32_t value) {
   ;
   _impl_.status_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SayHelloRequest
+
+// -------------------------------------------------------------------
+
+// SayHelloRespone
+
+// bytes msg = 1;
+inline void SayHelloRespone::clear_msg() {
+  _impl_.msg_.ClearToEmpty();
+}
+inline const std::string& SayHelloRespone::msg() const {
+  // @@protoc_insertion_point(field_get:mprpc.SayHelloRespone.msg)
+  return _internal_msg();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void SayHelloRespone::set_msg(Arg_&& arg,
+                                                     Args_... args) {
+  ;
+  _impl_.msg_.SetBytes(static_cast<Arg_&&>(arg), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:mprpc.SayHelloRespone.msg)
+}
+inline std::string* SayHelloRespone::mutable_msg() {
+  std::string* _s = _internal_mutable_msg();
+  // @@protoc_insertion_point(field_mutable:mprpc.SayHelloRespone.msg)
+  return _s;
+}
+inline const std::string& SayHelloRespone::_internal_msg() const {
+  return _impl_.msg_.Get();
+}
+inline void SayHelloRespone::_internal_set_msg(const std::string& value) {
+  ;
+  _impl_.msg_.Set(value, GetArenaForAllocation());
+}
+inline std::string* SayHelloRespone::_internal_mutable_msg() {
+  ;
+  return _impl_.msg_.Mutable( GetArenaForAllocation());
+}
+inline std::string* SayHelloRespone::release_msg() {
+  // @@protoc_insertion_point(field_release:mprpc.SayHelloRespone.msg)
+  return _impl_.msg_.Release();
+}
+inline void SayHelloRespone::set_allocated_msg(std::string* value) {
+  _impl_.msg_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.msg_.IsDefault()) {
+          _impl_.msg_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:mprpc.SayHelloRespone.msg)
 }
 
 #ifdef __GNUC__

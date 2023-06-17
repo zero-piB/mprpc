@@ -60,8 +60,39 @@ struct LoginResponeDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 LoginResponeDefaultTypeInternal _LoginRespone_default_instance_;
+      template <typename>
+PROTOBUF_CONSTEXPR SayHelloRequest::SayHelloRequest(::_pbi::ConstantInitialized) {}
+struct SayHelloRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SayHelloRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~SayHelloRequestDefaultTypeInternal() {}
+  union {
+    SayHelloRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SayHelloRequestDefaultTypeInternal _SayHelloRequest_default_instance_;
+        template <typename>
+PROTOBUF_CONSTEXPR SayHelloRespone::SayHelloRespone(::_pbi::ConstantInitialized)
+    : _impl_{
+      /*decltype(_impl_.msg_)*/ {
+          &::_pbi::fixed_address_empty_string,
+          ::_pbi::ConstantInitialized{},
+      },
+      /*decltype(_impl_._cached_size_)*/ {},
+    } {}
+struct SayHelloResponeDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SayHelloResponeDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~SayHelloResponeDefaultTypeInternal() {}
+  union {
+    SayHelloRespone _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SayHelloResponeDefaultTypeInternal _SayHelloRespone_default_instance_;
 }  // namespace mprpc
-static ::_pb::Metadata file_level_metadata_user_2eproto[2];
+static ::_pb::Metadata file_level_metadata_user_2eproto[4];
 static constexpr const ::_pb::EnumDescriptor**
     file_level_enum_descriptors_user_2eproto = nullptr;
 static const ::_pb::ServiceDescriptor*
@@ -87,36 +118,60 @@ const ::uint32_t TableStruct_user_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
     ~0u,  // no _split_
     ~0u,  // no sizeof(Split)
     PROTOBUF_FIELD_OFFSET(::mprpc::LoginRespone, _impl_.status_),
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::mprpc::SayHelloRequest, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::mprpc::SayHelloRespone, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::mprpc::SayHelloRespone, _impl_.msg_),
 };
 
 static const ::_pbi::MigrationSchema
     schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
         {0, -1, -1, sizeof(::mprpc::LoginRequest)},
         {10, -1, -1, sizeof(::mprpc::LoginRespone)},
+        {19, -1, -1, sizeof(::mprpc::SayHelloRequest)},
+        {27, -1, -1, sizeof(::mprpc::SayHelloRespone)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
     &::mprpc::_LoginRequest_default_instance_._instance,
     &::mprpc::_LoginRespone_default_instance_._instance,
+    &::mprpc::_SayHelloRequest_default_instance_._instance,
+    &::mprpc::_SayHelloRespone_default_instance_._instance,
 };
 const char descriptor_table_protodef_user_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
     "\n\nuser.proto\022\005mprpc\"0\n\014LoginRequest\022\020\n\010u"
     "sername\030\001 \001(\014\022\016\n\006passwd\030\002 \001(\014\"\036\n\014LoginRe"
-    "spone\022\016\n\006status\030\001 \001(\0052@\n\nUserServer\0222\n\006L"
-    "oging\022\023.mprpc.LoginRequest\032\023.mprpc.Login"
-    "ResponeB\003\200\001\001b\006proto3"
+    "spone\022\016\n\006status\030\001 \001(\005\"\021\n\017SayHelloRequest"
+    "\"\036\n\017SayHelloRespone\022\013\n\003msg\030\001 \001(\0142{\n\nUser"
+    "Server\0221\n\005Login\022\023.mprpc.LoginRequest\032\023.m"
+    "prpc.LoginRespone\022:\n\010SayHello\022\026.mprpc.Sa"
+    "yHelloRequest\032\026.mprpc.SayHelloResponeB\003\200"
+    "\001\001b\006proto3"
 };
 static ::absl::once_flag descriptor_table_user_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_user_2eproto = {
     false,
     false,
-    180,
+    290,
     descriptor_table_protodef_user_2eproto,
     "user.proto",
     &descriptor_table_user_2eproto_once,
     nullptr,
     0,
-    2,
+    4,
     schemas,
     file_default_instances,
     TableStruct_user_2eproto::offsets,
@@ -535,6 +590,231 @@ void LoginRespone::InternalSwap(LoginRespone* other) {
 }
 // ===================================================================
 
+class SayHelloRequest::_Internal {
+ public:
+};
+
+SayHelloRequest::SayHelloRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
+  // @@protoc_insertion_point(arena_constructor:mprpc.SayHelloRequest)
+}
+SayHelloRequest::SayHelloRequest(const SayHelloRequest& from) : ::google::protobuf::internal::ZeroFieldsBase() {
+  SayHelloRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+
+  // @@protoc_insertion_point(copy_constructor:mprpc.SayHelloRequest)
+}
+
+
+
+
+const ::google::protobuf::Message::ClassData SayHelloRequest::_class_data_ = {
+    ::google::protobuf::internal::ZeroFieldsBase::CopyImpl,
+    ::google::protobuf::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::google::protobuf::Message::ClassData*SayHelloRequest::GetClassData() const { return &_class_data_; }
+
+
+
+
+
+
+
+::google::protobuf::Metadata SayHelloRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_user_2eproto_getter, &descriptor_table_user_2eproto_once,
+      file_level_metadata_user_2eproto[2]);
+}
+// ===================================================================
+
+class SayHelloRespone::_Internal {
+ public:
+};
+
+SayHelloRespone::SayHelloRespone(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:mprpc.SayHelloRespone)
+}
+SayHelloRespone::SayHelloRespone(const SayHelloRespone& from) : ::google::protobuf::Message() {
+  SayHelloRespone* const _this = this;
+  (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.msg_){},
+      /*decltype(_impl_._cached_size_)*/ {},
+  };
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  _impl_.msg_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        _impl_.msg_.Set("", GetArenaForAllocation());
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_msg().empty()) {
+    _this->_impl_.msg_.Set(from._internal_msg(), _this->GetArenaForAllocation());
+  }
+
+  // @@protoc_insertion_point(copy_constructor:mprpc.SayHelloRespone)
+}
+inline void SayHelloRespone::SharedCtor(::_pb::Arena* arena) {
+  (void)arena;
+  new (&_impl_) Impl_{
+      decltype(_impl_.msg_){},
+      /*decltype(_impl_._cached_size_)*/ {},
+  };
+  _impl_.msg_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        _impl_.msg_.Set("", GetArenaForAllocation());
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+SayHelloRespone::~SayHelloRespone() {
+  // @@protoc_insertion_point(destructor:mprpc.SayHelloRespone)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void SayHelloRespone::SharedDtor() {
+  ABSL_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.msg_.Destroy();
+}
+void SayHelloRespone::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+PROTOBUF_NOINLINE void SayHelloRespone::Clear() {
+// @@protoc_insertion_point(message_clear_start:mprpc.SayHelloRespone)
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.msg_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+const char* SayHelloRespone::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
+  return ptr;
+}
+
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 0, 2> SayHelloRespone::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_SayHelloRespone_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // bytes msg = 1;
+    {::_pbi::TcParser::FastBS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(SayHelloRespone, _impl_.msg_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // bytes msg = 1;
+    {PROTOBUF_FIELD_OFFSET(SayHelloRespone, _impl_.msg_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBytes | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+
+::uint8_t* SayHelloRespone::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:mprpc.SayHelloRespone)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  // bytes msg = 1;
+  if (!this->_internal_msg().empty()) {
+    const std::string& _s = this->_internal_msg();
+    target = stream->WriteBytesMaybeAliased(1, _s, target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:mprpc.SayHelloRespone)
+  return target;
+}
+
+::size_t SayHelloRespone::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:mprpc.SayHelloRespone)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // bytes msg = 1;
+  if (!this->_internal_msg().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                    this->_internal_msg());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::google::protobuf::Message::ClassData SayHelloRespone::_class_data_ = {
+    ::google::protobuf::Message::CopyWithSourceCheck,
+    SayHelloRespone::MergeImpl
+};
+const ::google::protobuf::Message::ClassData*SayHelloRespone::GetClassData() const { return &_class_data_; }
+
+
+void SayHelloRespone::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
+  auto* const _this = static_cast<SayHelloRespone*>(&to_msg);
+  auto& from = static_cast<const SayHelloRespone&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:mprpc.SayHelloRespone)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_msg().empty()) {
+    _this->_internal_set_msg(from._internal_msg());
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SayHelloRespone::CopyFrom(const SayHelloRespone& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:mprpc.SayHelloRespone)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+PROTOBUF_NOINLINE bool SayHelloRespone::IsInitialized() const {
+  return true;
+}
+
+void SayHelloRespone::InternalSwap(SayHelloRespone* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.msg_, lhs_arena,
+                                       &other->_impl_.msg_, rhs_arena);
+}
+
+::google::protobuf::Metadata SayHelloRespone::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_user_2eproto_getter, &descriptor_table_user_2eproto_once,
+      file_level_metadata_user_2eproto[3]);
+}
+// ===================================================================
+
 const ::google::protobuf::ServiceDescriptor* UserServer::descriptor() {
   ::google::protobuf::internal::AssignDescriptors(&descriptor_table_user_2eproto);
   return file_level_service_descriptors_user_2eproto[0];
@@ -544,9 +824,14 @@ const ::google::protobuf::ServiceDescriptor* UserServer::GetDescriptor() {
   return descriptor();
 }
 
-void UserServer::Loging(::google::protobuf::RpcController* controller,
+void UserServer::Login(::google::protobuf::RpcController* controller,
                          const ::mprpc::LoginRequest*, ::mprpc::LoginRespone*, ::google::protobuf::Closure* done) {
-  controller->SetFailed("Method Loging() not implemented.");
+  controller->SetFailed("Method Login() not implemented.");
+  done->Run();
+}
+void UserServer::SayHello(::google::protobuf::RpcController* controller,
+                         const ::mprpc::SayHelloRequest*, ::mprpc::SayHelloRespone*, ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method SayHello() not implemented.");
   done->Run();
 }
 
@@ -558,9 +843,14 @@ void UserServer::CallMethod(
   ABSL_DCHECK_EQ(method->service(), file_level_service_descriptors_user_2eproto[0]);
   switch (method->index()) {
     case 0:
-      Loging(controller,
+      Login(controller,
              ::google::protobuf::internal::DownCast<const ::mprpc::LoginRequest*>(request),
              ::google::protobuf::internal::DownCast<::mprpc::LoginRespone*>(response), done);
+      break;
+    case 1:
+      SayHello(controller,
+             ::google::protobuf::internal::DownCast<const ::mprpc::SayHelloRequest*>(request),
+             ::google::protobuf::internal::DownCast<::mprpc::SayHelloRespone*>(response), done);
       break;
 
     default:
@@ -575,6 +865,8 @@ const ::google::protobuf::Message& UserServer::GetRequestPrototype(
   switch (method->index()) {
     case 0:
       return ::mprpc::LoginRequest::default_instance();
+    case 1:
+      return ::mprpc::SayHelloRequest::default_instance();
 
     default:
       ABSL_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -589,6 +881,8 @@ const ::google::protobuf::Message& UserServer::GetResponsePrototype(
   switch (method->index()) {
     case 0:
       return ::mprpc::LoginRespone::default_instance();
+    case 1:
+      return ::mprpc::SayHelloRespone::default_instance();
 
     default:
       ABSL_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -611,10 +905,16 @@ UserServer_Stub::~UserServer_Stub() {
   if (owns_channel_) delete channel_;
 }
 
-void UserServer_Stub::Loging(::google::protobuf::RpcController* controller,
+void UserServer_Stub::Login(::google::protobuf::RpcController* controller,
                               const ::mprpc::LoginRequest* request,
                               ::mprpc::LoginRespone* response, ::google::protobuf::Closure* done) {
   channel_->CallMethod(descriptor()->method(0), controller,
+                       request, response, done);
+}
+void UserServer_Stub::SayHello(::google::protobuf::RpcController* controller,
+                              const ::mprpc::SayHelloRequest* request,
+                              ::mprpc::SayHelloRespone* response, ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(1), controller,
                        request, response, done);
 }
 // @@protoc_insertion_point(namespace_scope)
@@ -628,6 +928,14 @@ Arena::CreateMaybeMessage< ::mprpc::LoginRequest >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::mprpc::LoginRespone*
 Arena::CreateMaybeMessage< ::mprpc::LoginRespone >(Arena* arena) {
   return Arena::CreateMessageInternal< ::mprpc::LoginRespone >(arena);
+}
+template<> PROTOBUF_NOINLINE ::mprpc::SayHelloRequest*
+Arena::CreateMaybeMessage< ::mprpc::SayHelloRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::mprpc::SayHelloRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::mprpc::SayHelloRespone*
+Arena::CreateMaybeMessage< ::mprpc::SayHelloRespone >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::mprpc::SayHelloRespone >(arena);
 }
 }  // namespace protobuf
 }  // namespace google
