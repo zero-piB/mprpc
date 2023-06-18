@@ -399,8 +399,25 @@ class LoginRespone final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kMsgFieldNumber = 2,
     kStatusFieldNumber = 1,
   };
+  // bytes msg = 2;
+  void clear_msg() ;
+  const std::string& msg() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_msg(Arg_&& arg, Args_... args);
+  std::string* mutable_msg();
+  PROTOBUF_NODISCARD std::string* release_msg();
+  void set_allocated_msg(std::string* ptr);
+
+  private:
+  const std::string& _internal_msg() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_msg(
+      const std::string& value);
+  std::string* _internal_mutable_msg();
+
+  public:
   // int32 status = 1;
   void clear_status() ;
   ::int32_t status() const;
@@ -416,11 +433,12 @@ class LoginRespone final :
   class _Internal;
 
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<0, 1, 0, 0, 2> _table_;
+  static const ::google::protobuf::internal::TcParseTable<1, 2, 0, 0, 2> _table_;
   template <typename T> friend class ::google::protobuf::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::google::protobuf::internal::ArenaStringPtr msg_;
     ::int32_t status_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER;
@@ -916,6 +934,51 @@ inline ::int32_t LoginRespone::_internal_status() const {
 inline void LoginRespone::_internal_set_status(::int32_t value) {
   ;
   _impl_.status_ = value;
+}
+
+// bytes msg = 2;
+inline void LoginRespone::clear_msg() {
+  _impl_.msg_.ClearToEmpty();
+}
+inline const std::string& LoginRespone::msg() const {
+  // @@protoc_insertion_point(field_get:mprpc.LoginRespone.msg)
+  return _internal_msg();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void LoginRespone::set_msg(Arg_&& arg,
+                                                     Args_... args) {
+  ;
+  _impl_.msg_.SetBytes(static_cast<Arg_&&>(arg), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:mprpc.LoginRespone.msg)
+}
+inline std::string* LoginRespone::mutable_msg() {
+  std::string* _s = _internal_mutable_msg();
+  // @@protoc_insertion_point(field_mutable:mprpc.LoginRespone.msg)
+  return _s;
+}
+inline const std::string& LoginRespone::_internal_msg() const {
+  return _impl_.msg_.Get();
+}
+inline void LoginRespone::_internal_set_msg(const std::string& value) {
+  ;
+  _impl_.msg_.Set(value, GetArenaForAllocation());
+}
+inline std::string* LoginRespone::_internal_mutable_msg() {
+  ;
+  return _impl_.msg_.Mutable( GetArenaForAllocation());
+}
+inline std::string* LoginRespone::release_msg() {
+  // @@protoc_insertion_point(field_release:mprpc.LoginRespone.msg)
+  return _impl_.msg_.Release();
+}
+inline void LoginRespone::set_allocated_msg(std::string* value) {
+  _impl_.msg_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.msg_.IsDefault()) {
+          _impl_.msg_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:mprpc.LoginRespone.msg)
 }
 
 // -------------------------------------------------------------------

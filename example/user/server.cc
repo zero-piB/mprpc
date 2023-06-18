@@ -9,7 +9,8 @@ public:
     bool Login(const std::string& name, const std::string& pwd) {
         std::cout << "doing local service: Login" << std::endl;
         std::cout << "name:" << name << " pwd:" << pwd << std::endl; 
-        return true;
+        if (name == "ywd" && pwd == "Ling0000") return true;
+        return false;
     }
 
     void Login(::google::protobuf::RpcController* controller,
@@ -24,8 +25,14 @@ public:
         // 做本地业务
         bool login_result = Login(name, pwd); 
 
-        response->set_status(0);
-
+        if (login_result) {
+            response->set_status(0);
+            response->set_msg("welcome, ywd");
+        } else {
+            response->set_status(-1);
+            response->set_msg("user not exist");
+        }
+        
         // 执行回调操作   执行响应对象数据的序列化和网络发送（都是由框架来完成的）
         done->Run();
     }

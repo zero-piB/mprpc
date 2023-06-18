@@ -47,6 +47,10 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
         template <typename>
 PROTOBUF_CONSTEXPR LoginRespone::LoginRespone(::_pbi::ConstantInitialized)
     : _impl_{
+      /*decltype(_impl_.msg_)*/ {
+          &::_pbi::fixed_address_empty_string,
+          ::_pbi::ConstantInitialized{},
+      },
       /*decltype(_impl_.status_)*/ 0,
       /*decltype(_impl_._cached_size_)*/ {},
     } {}
@@ -118,6 +122,7 @@ const ::uint32_t TableStruct_user_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
     ~0u,  // no _split_
     ~0u,  // no sizeof(Split)
     PROTOBUF_FIELD_OFFSET(::mprpc::LoginRespone, _impl_.status_),
+    PROTOBUF_FIELD_OFFSET(::mprpc::LoginRespone, _impl_.msg_),
     ~0u,  // no _has_bits_
     PROTOBUF_FIELD_OFFSET(::mprpc::SayHelloRequest, _internal_metadata_),
     ~0u,  // no _extensions_
@@ -141,8 +146,8 @@ static const ::_pbi::MigrationSchema
     schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
         {0, -1, -1, sizeof(::mprpc::LoginRequest)},
         {10, -1, -1, sizeof(::mprpc::LoginRespone)},
-        {19, -1, -1, sizeof(::mprpc::SayHelloRequest)},
-        {27, -1, -1, sizeof(::mprpc::SayHelloRespone)},
+        {20, -1, -1, sizeof(::mprpc::SayHelloRequest)},
+        {28, -1, -1, sizeof(::mprpc::SayHelloRespone)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -153,19 +158,19 @@ static const ::_pb::Message* const file_default_instances[] = {
 };
 const char descriptor_table_protodef_user_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
     "\n\nuser.proto\022\005mprpc\"0\n\014LoginRequest\022\020\n\010u"
-    "sername\030\001 \001(\014\022\016\n\006passwd\030\002 \001(\014\"\036\n\014LoginRe"
-    "spone\022\016\n\006status\030\001 \001(\005\"\021\n\017SayHelloRequest"
-    "\"\036\n\017SayHelloRespone\022\013\n\003msg\030\001 \001(\0142{\n\nUser"
-    "Server\0221\n\005Login\022\023.mprpc.LoginRequest\032\023.m"
-    "prpc.LoginRespone\022:\n\010SayHello\022\026.mprpc.Sa"
-    "yHelloRequest\032\026.mprpc.SayHelloResponeB\003\200"
-    "\001\001b\006proto3"
+    "sername\030\001 \001(\014\022\016\n\006passwd\030\002 \001(\014\"+\n\014LoginRe"
+    "spone\022\016\n\006status\030\001 \001(\005\022\013\n\003msg\030\002 \001(\014\"\021\n\017Sa"
+    "yHelloRequest\"\036\n\017SayHelloRespone\022\013\n\003msg\030"
+    "\001 \001(\0142{\n\nUserServer\0221\n\005Login\022\023.mprpc.Log"
+    "inRequest\032\023.mprpc.LoginRespone\022:\n\010SayHel"
+    "lo\022\026.mprpc.SayHelloRequest\032\026.mprpc.SayHe"
+    "lloResponeB\003\200\001\001b\006proto3"
 };
 static ::absl::once_flag descriptor_table_user_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_user_2eproto = {
     false,
     false,
-    290,
+    303,
     descriptor_table_protodef_user_2eproto,
     "user.proto",
     &descriptor_table_user_2eproto_once,
@@ -433,18 +438,38 @@ LoginRespone::LoginRespone(::google::protobuf::Arena* arena)
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:mprpc.LoginRespone)
 }
-LoginRespone::LoginRespone(const LoginRespone& from)
-    : ::google::protobuf::Message(), _impl_(from._impl_) {
+LoginRespone::LoginRespone(const LoginRespone& from) : ::google::protobuf::Message() {
+  LoginRespone* const _this = this;
+  (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.msg_){},
+      decltype(_impl_.status_){},
+      /*decltype(_impl_._cached_size_)*/ {},
+  };
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
+  _impl_.msg_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        _impl_.msg_.Set("", GetArenaForAllocation());
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_msg().empty()) {
+    _this->_impl_.msg_.Set(from._internal_msg(), _this->GetArenaForAllocation());
+  }
+  _this->_impl_.status_ = from._impl_.status_;
+
   // @@protoc_insertion_point(copy_constructor:mprpc.LoginRespone)
 }
 inline void LoginRespone::SharedCtor(::_pb::Arena* arena) {
   (void)arena;
   new (&_impl_) Impl_{
+      decltype(_impl_.msg_){},
       decltype(_impl_.status_){0},
       /*decltype(_impl_._cached_size_)*/ {},
   };
+  _impl_.msg_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        _impl_.msg_.Set("", GetArenaForAllocation());
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 LoginRespone::~LoginRespone() {
   // @@protoc_insertion_point(destructor:mprpc.LoginRespone)
@@ -453,6 +478,7 @@ LoginRespone::~LoginRespone() {
 }
 inline void LoginRespone::SharedDtor() {
   ABSL_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.msg_.Destroy();
 }
 void LoginRespone::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
@@ -464,6 +490,7 @@ PROTOBUF_NOINLINE void LoginRespone::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.msg_.ClearToEmpty();
   _impl_.status_ = 0;
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -476,20 +503,23 @@ const char* LoginRespone::_InternalParse(
 
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 1, 0, 0, 2> LoginRespone::_table_ = {
+const ::_pbi::TcParseTable<1, 2, 0, 0, 2> LoginRespone::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    1, 0,  // max_field_number, fast_idx_mask
+    2, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967294,  // skipmap
+    4294967292,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    1,  // num_field_entries
+    2,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     &_LoginRespone_default_instance_._instance,
     ::_pbi::TcParser::GenericFallback,  // fallback
   }, {{
+    // bytes msg = 2;
+    {::_pbi::TcParser::FastBS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(LoginRespone, _impl_.msg_)}},
     // int32 status = 1;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(LoginRespone, _impl_.status_), 63>(),
      {8, 63, 0, PROTOBUF_FIELD_OFFSET(LoginRespone, _impl_.status_)}},
@@ -499,6 +529,9 @@ const ::_pbi::TcParseTable<0, 1, 0, 0, 2> LoginRespone::_table_ = {
     // int32 status = 1;
     {PROTOBUF_FIELD_OFFSET(LoginRespone, _impl_.status_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
+    // bytes msg = 2;
+    {PROTOBUF_FIELD_OFFSET(LoginRespone, _impl_.msg_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBytes | ::_fl::kRepAString)},
   }},
   // no aux_entries
   {{
@@ -519,6 +552,12 @@ const ::_pbi::TcParseTable<0, 1, 0, 0, 2> LoginRespone::_table_ = {
             stream, this->_internal_status(), target);
   }
 
+  // bytes msg = 2;
+  if (!this->_internal_msg().empty()) {
+    const std::string& _s = this->_internal_msg();
+    target = stream->WriteBytesMaybeAliased(2, _s, target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -535,6 +574,12 @@ const ::_pbi::TcParseTable<0, 1, 0, 0, 2> LoginRespone::_table_ = {
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // bytes msg = 2;
+  if (!this->_internal_msg().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                    this->_internal_msg());
+  }
 
   // int32 status = 1;
   if (this->_internal_status() != 0) {
@@ -560,6 +605,9 @@ void LoginRespone::MergeImpl(::google::protobuf::Message& to_msg, const ::google
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (!from._internal_msg().empty()) {
+    _this->_internal_set_msg(from._internal_msg());
+  }
   if (from._internal_status() != 0) {
     _this->_internal_set_status(from._internal_status());
   }
@@ -579,7 +627,11 @@ PROTOBUF_NOINLINE bool LoginRespone::IsInitialized() const {
 
 void LoginRespone::InternalSwap(LoginRespone* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.msg_, lhs_arena,
+                                       &other->_impl_.msg_, rhs_arena);
         swap(_impl_.status_, other->_impl_.status_);
 }
 

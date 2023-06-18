@@ -11,6 +11,18 @@
 ## 安装
 安装protobuf, C++版本需要c++14以上, 需要预先安装cmake和gcc
 
+安装gcc
+yum groupinstall "Development Tools"
+yum install gmp-devel mpfr-devel libmpc-devel
+cd gcc-xx
+./configure --disable-multilib --enable-bootstrap --enable-languages=c,c++
+
+上面的命令会把gcc自动安装到 /usr/local下面, 加上 --prefix=xxxx选定指定的安装路径
+
+安装cmake
+
+
+
 安装protobuf
 
 ``` shell
