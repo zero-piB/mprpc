@@ -46,7 +46,7 @@ static const char *stringifyLogLevel(LogLevel level) {
   return levelName[level];
 }
 
-unsigned long long get_thread_id() {
+static unsigned long long get_thread_id() {
 #ifdef _WIN32
     return GetCurrentThreadId();
 #else
@@ -127,7 +127,7 @@ private:
     Logger* logger_;
 };
 
-std::string time() {
+static std::string get_time() {
   std::ostringstream ss;
   auto now = std::chrono::system_clock::now();
     // 将时间点转换为时间结构体
@@ -150,7 +150,7 @@ std::string time() {
         simplelogger::LogEntry(simplelogger::singleton()) \
         << simplelogger::singleton()->get_color_code(level) \
         << "[" << stringifyLogLevel(level) << "] " \
-        << simplelogger::time() << " " << simplelogger::get_thread_id() << " " \
+        << simplelogger::get_time() << " " << simplelogger::get_thread_id() << " " \
         << __FILE__ << ":"  << __FUNCTION__ << ":" << __LINE__ << " "
 
 #define LOG_DEBUG LOG(simplelogger::LogLevel::kDebug)

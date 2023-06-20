@@ -26,7 +26,7 @@ cd gcc-xx
 安装protobuf
 
 ``` shell
-git cloen git@github.com:protocolbuffers/protobuf.git
+git clone git@github.com:protocolbuffers/protobuf.git
 cd protobuf
 
 git submodule update --init --recursive 

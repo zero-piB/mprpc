@@ -13,7 +13,7 @@ class MprpcChannel: public google::protobuf::RpcChannel {
 public:
     explicit MprpcChannel(const std::string& endpoint): endpoint_(endpoint) {
         auto p = endpoint.find(":");
-        if (p != -1) {
+        if (p != std::string::npos) {
             ip_ = endpoint.substr(0, p);
             port_ = std::stoi(endpoint.substr(p + 1));
         }

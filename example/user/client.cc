@@ -13,7 +13,7 @@ int main(int argc, char **argv) {
     mprpc::LoginRequest request;
 
     mprpc::LoginRespone response;
-    google::protobuf::Closure *done;
+    google::protobuf::Closure *done = nullptr;
     
     request.set_username("ywd");
     request.set_passwd("Ling0000");

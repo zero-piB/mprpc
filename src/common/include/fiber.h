@@ -10,6 +10,8 @@
 #include <thread>
 #include <functional>
 #include <ucontext.h>
+#include <atomic>
+#include "macro.h"
 
 class Fiber: public std::enable_shared_from_this<Fiber> {
 public:
@@ -134,7 +136,7 @@ private:
     uint64_t id_ = 0;   // 协程id
     State state_ = INIT;   // 协程状态
     uint32_t stack_size_ = 0;   // 协程栈大小
-    ucontext ctx_;     // 当前协程上下文
+    ucontext_t ctx_;     // 当前协程上下文
     void* stack_ptr_ = nullptr;     // 当前协程的运行栈指针
     std::function<void()> cb_;      // 当前协程的运行函数
 };

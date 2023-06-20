@@ -4,8 +4,6 @@
  * @FilePath: /mprpc/src/common/fiber.cc
  */
 #include "fiber.h"
-#include "macro.h"
-#include <atomic>
 
 static std::atomic<uint64_t> s_fiber_id;    // 当前协程id
 static std::atomic<uint64_t> s_fiber_count; // 运行的协程数量
@@ -61,7 +59,8 @@ Fiber::Fiber(std::function<void()> cb, size_t stacksize, bool use_caller):
     if (!use_caller) {
         makecontext(&ctx_, &Fiber::MainFunc, 0);
     } else {
-        makecontext(&ctx_, &Fiber::CallerMainFunc, 0);
+        // TODO: 定义use_caller时会自定义方法
+        makecontext(&ctx_, &Fiber::MainFunc, 0);
     }
 
     LOG_DEBUG << "Fiber created, id = " << id_;
@@ -142,4 +141,55 @@ Fiber::ptr Fiber::GetThis() {
     ROLLX_ASSERT(t_fiber == main_fiber.get());
     t_threadFiber = main_fiber;
     return main_fiber->shared_from_this();
+}
+
+// 当前协程，变成ready状态
+void Fiber::YieldToReady() {
+    auto cur = t_fiber;
+    ROLLX_ASSERT(cur->state_ == EXEC);
+    cur->state_ = READY;
+    cur->swapOut();
+}
+
+// 当前协程，变成hold状态
+void Fiber::YieldToHold() {
+    auto cur = t_fiber;
+    ROLLX_ASSERT(cur->state_ == EXEC);
+    cur->state_ = HOLD;
+    cur->swapOut();
+}
+
+uint64_t Fiber::TotalFibers() {
+    return s_fiber_count;
+}
+
+// 携程执行的主函数
+void Fiber::MainFunc() {
+    auto cur = GetThis();
+    ROLLX_ASSERT(cur);
+    try {
+        cur->cb_();
+        cur->cb_ = nullptr;
+        cur->state_ = TERM;
+    } catch (std::exception& ex) {
+        cur->state_ = EXCEPT;
+        LOG_ERROR << "fiber id = " << cur->getId() << " except\n" \
+            << rollx::get_backtrace();
+    } catch (...) {
+        cur->state_ = EXCEPT;
+        LOG_ERROR << "fiber id = " << cur->getId() << " except\n" \
+            << rollx::get_backtrace();
+    }
+    auto raw_ptr = cur.get();
+    // 引用计数减少1
+    cur.reset();
+    raw_ptr->swapOut();
+
+    ROLLX_ASSERT2(false, "never reach fiber_id=" + std::to_string(raw_ptr->getId()));
+}
+
+uint64_t Fiber::GetFiberId() {
+    auto cur = GetThis();
+    ROLLX_ASSERT(cur);
+    return cur->getId();
 }

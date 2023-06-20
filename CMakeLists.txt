@@ -4,6 +4,8 @@ project(mprpc)
 
 # 可以调试的版本
 set(CMAKE_BUILD_TYPE "Debug")
+# 设置编译选项
+add_compile_options(-Wall)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -fPIC")
 
